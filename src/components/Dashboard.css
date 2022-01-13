@@ -1,0 +1,8 @@
+.dashMain {
+    margin-left: 15%;
+}
+
+.lists {
+    display: flex;
+    justify-content: space-evenly;
+}

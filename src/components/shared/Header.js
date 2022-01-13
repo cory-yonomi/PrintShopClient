@@ -2,15 +2,40 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+
+
 const linkStyle = {
     color: 'white',
-    textDecoration: 'none'
+	textDecoration: 'none',
+	marginLeft: '-10px'
 }
+
+const navbarStyle = {
+	position: 'absolute',
+	width: '15%',
+	height: '100vh'
+}
+
 const authenticatedOptions = (
 	<>
 		<Nav.Link>
-			<Link to='change-password' style={linkStyle}>
-				Change Password
+			<Link to='workflow' style={linkStyle}>
+				Workflow
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='customers' style={linkStyle}>
+				Customers
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='projects' style={linkStyle}>
+				Projects
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='profile' style={linkStyle}>
+				Profile
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
@@ -35,7 +60,7 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
 	<>
 		<Nav.Link>
-			<Link to='/' style={linkStyle}>
+			<Link to='/dashboard' style={linkStyle}>
 				Home
 			</Link>
 		</Nav.Link>
@@ -43,17 +68,17 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+	<Navbar bg='primary' variant='dark' expand='md' className="flex-column" style={navbarStyle}>
 		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
-                react-auth-template
-            </Link>
-        </Navbar.Brand>
+			<Link to='/' style={linkStyle}>
+				Print Shop
+			</Link>
+		</Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
-			<Nav className='ml-auto'>
+			<Nav className='ml-auto flex-column'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='navbar-text mr-2'>{user.email}</span>
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
