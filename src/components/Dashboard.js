@@ -9,7 +9,7 @@ const Dashboard = () => {
 
 
     return (
-        <div className="dashMain">
+        <div className="main">
             <div className='lists'>
                 <ListDisplay >
                     
@@ -19,7 +19,7 @@ const Dashboard = () => {
                 </ListDisplay>
             </div>
             <div className="forms">
-                
+
             </div>
         </div>
     )

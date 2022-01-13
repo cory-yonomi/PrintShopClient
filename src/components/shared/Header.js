@@ -24,8 +24,8 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
-			<Link to='customers' style={linkStyle}>
-				Customers
+			<Link to='clients' style={linkStyle}>
+				Clients
 			</Link>
 		</Nav.Link>
 		<Nav.Link>

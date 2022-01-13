@@ -10,6 +10,7 @@ import RequireAuth from './components/shared/RequireAuth'
 import Home from './components/Home'
 import Profile from './components/Profile'
 import Dashboard from './components/Dashboard'
+import Clients from './components/Clients/Clients'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
@@ -50,6 +51,14 @@ const App = () => {
 					element={
 						<RequireAuth user={user}>
 							<Dashboard msgAlert={msgAlert} setUser={setUser} />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/clients"
+					element={
+						<RequireAuth user={user}>
+							<Clients msgAlert={msgAlert} setUser={setUser} />
 						</RequireAuth>
 					}
 				/>
