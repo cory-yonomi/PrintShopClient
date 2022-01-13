@@ -4,7 +4,7 @@ import CustomerForm from "./ClientForm"
 const Clients = () => {
     
     return (
-        <div className="main">
+        <div className='main'>
             <div className='lists'>
             <ListDisplay>
 

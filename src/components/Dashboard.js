@@ -2,7 +2,7 @@ import { useEffect, useState, Fragment } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import { Container, Row } from "react-bootstrap"
-import ListDisplay from './UI/ListDisplay'
+import ListDisplay from './ui/ListDisplay'
 import './Dashboard.css'
 
 const Dashboard = () => {
