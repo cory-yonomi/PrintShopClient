@@ -1,4 +1,4 @@
-import ListDisplay from "../UI/ListDisplay"
+import ListDisplay from "../ui/ListDisplay"
 import CustomerForm from "./ClientForm"
 
 const Clients = () => {

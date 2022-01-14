@@ -27,16 +27,27 @@ const CustomerForm = () => {
     }
 
     const CREATE_CUSTOMER = gql`
-    mutation CreateCustomer($company: String!, $contactName: String!, $email: String!, $phone: String!){createCustomer(Customer: {company: $company, contactName: $contactName, email: $email, phone: $phone})}`
+    mutation createCustomer($company: String!, $contactName: String!, $email: String!, $phone: String!){
+        createCustomer(company: $company, contactName: $contactName, email: $email, phone: $phone){
+            contactName
+            }
+        }
+    `
 
-    const [createProduct, {data, loading, error}] = useMutation(CREATE_CUSTOMER, {
-    variables: {company: company,contactName: contactName, email: email, phone: phone}})
+    const [createCustomer, {data, loading, error}] = useMutation(CREATE_CUSTOMER, {
+    variables: {
+        company: company,
+        contactName: contactName,
+        email: email,
+        phone: phone
+        }
+    })
     
 
     const submitHandler = (e) => {
         e.preventDefault()
         console.log(e)
-        createProduct()
+        createCustomer()
         
         // axios({
         //     url: 'http://localhost:8000/graphql',
