@@ -6,21 +6,29 @@ import ProjectForm from "./projects/ProjectForm"
 
 const Dashboard = () => {
     const [clients, setClients] = useState([])
+    const [projects, setProjects] = useState([])
 
-    const GET_CLIENTS = gql`
+    const GET_DASHBOARD_DATA = gql`
     query {
         customers {
             _id
             company
         }
+        projects {
+            name
+            customer {
+                company
+            }
+        }
     }
     `
 
-    const {loading, data} = useQuery(GET_CLIENTS)
+    const {loading, data} = useQuery(GET_DASHBOARD_DATA)
     
     useEffect(() => {
         if (data) {
             setClients(data.customers)
+            setProjects(data.projects)
         }
     }, [data])
 
@@ -28,7 +36,14 @@ const Dashboard = () => {
         <div className='main'>
             <div className='lists'>
                 <ListDisplay title='Current Projects'>
-                    
+                    {loading ? (<p>Loading</p>) : (
+                        data && projects.map(project => (
+                                <div className='listItem' key={project._id}>
+                                <div>{project.name}</div>
+                                {/* <div>{project.customer}</div> */}
+                                </div>
+                            ))
+                )}
                 </ListDisplay>
                 <ListDisplay title='Current Jobs'>
     
