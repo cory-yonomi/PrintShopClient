@@ -40,7 +40,7 @@ const Dashboard = () => {
                         data && projects.map(project => (
                                 <div className='listItem' key={project._id}>
                                 <div>{project.name}</div>
-                                {/* <div>{project.customer}</div> */}
+                                <div>{project.customer.company}</div>
                                 </div>
                             ))
                 )}
