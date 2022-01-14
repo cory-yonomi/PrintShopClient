@@ -1,11 +1,12 @@
 import './ListDisplay.css'
 
-const ListDisplay = () => {
+const ListDisplay = ({ title, children }) => {
 
 
     return (
         <div className="listDisplay">
-            <h3>Current Jobs</h3>
+            <h3>{title}</h3>
+            {children}
         </div>
     )
 }

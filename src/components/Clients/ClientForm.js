@@ -1,15 +1,14 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { gql, useMutation } from '@apollo/client'
 
 
 
-const CustomerForm = () => {
+const ClientForm = () => {
 
     const [ company, setCompany ] = useState('')
     const [ contactName, setContactName ] = useState('')
     const [ email, setEmail ] = useState('')
-    const [phone, setPhone] = useState('')
+    const [ phone, setPhone ] = useState('')
     
     const companyInput = e => {
         setCompany(e.target.value)
@@ -34,7 +33,7 @@ const CustomerForm = () => {
         }
     `
 
-    const [createCustomer, {data, loading, error}] = useMutation(CREATE_CUSTOMER, {
+    const [createCustomer] = useMutation(CREATE_CUSTOMER, {
     variables: {
         company: company,
         contactName: contactName,
@@ -48,44 +47,28 @@ const CustomerForm = () => {
         e.preventDefault()
         console.log(e)
         createCustomer()
-        
-        // axios({
-        //     url: 'http://localhost:8000/graphql',
-        //     method: 'post',
-        //     data: {
-        //      query: `mutation {CustomerInput(company: $company, contactName: $contactName, email: $email, phone: $phone){company contactName email phone}}`
-        //     },
-        //     variables: {
-        //         company: company,
-        //         contactName: contactName,
-        //         email: email,
-        //         phone: phone
-        //     }
-        //    })
-        //     .then(res => {
-        //      console.log(res.data);
-        //     })
-        //     .catch(err => {
-        //      console.log(err.message);
-        //     });
+        setCompany('')
+        setContactName('')
+        setEmail('')
+        setPhone('')
     }
     
     return (
         <div>
             <h3>Add A Client</h3>
-            <form >
+            <form onSubmit={submitHandler}>
                 <label htmlFor="company">Company:</label>
-                <input type="text" onChange={companyInput}/><br />
+                <input type="text" onChange={companyInput} value={company}/><br />
                 <label htmlFor="contactName">Contact:</label>
-                <input type="text" onChange={contactNameInput}/><br />
+                <input type="text" onChange={contactNameInput} value={contactName}/><br />
                 <label htmlFor="email">Email:</label>
-                <input type="text" onChange={emailInput}/><br />
+                <input type="text" onChange={emailInput} value={email}/><br />
                 <label htmlFor="phone">Phone:</label>
-                <input type="text" onChange={phoneInput}/><br />
-                <button onClick={submitHandler}>Submit</button>
+                <input type="text" onChange={phoneInput} value={phone}/><br />
+                <input type="submit" />
             </form >
         </div>
     )
 }
 
-export default CustomerForm
+export default ClientForm
