@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { gql, useMutation } from '@apollo/client'
 
 export default function ProjectForm({ clients }) {
@@ -53,25 +53,32 @@ export default function ProjectForm({ clients }) {
         setNotes('')
         setCustomer('')
     }
-    
-    
 
     return (
         <div>
             <h3>Begin Project</h3>
-            <form onSubmit={submitHandler}>
-                <label htmlFor="name">Name:</label>
-                <input type="text" onChange={nameInput}/><br />
-                <label htmlFor="dueDate">Due Date:</label>
-                <input type="date" onChange={dueDateInput}/><br />
-                <label htmlFor="notes">Notes:</label>
-                <input type="text" onChange={notesInput}/><br />
-                <label htmlFor="customer">Customer:</label>
-                <select id='customer' name='customer' onChange={customerInput}>
-                    {clients.map(client => {
-                        return <option value={client._id} key={client._id}>{client.company}</option>
-                    })}
-                </select>
+            <form onSubmit={submitHandler} className="formTable">
+                <p>
+                    <label htmlFor="name">Name:</label>
+                    <input type="text" onChange={nameInput} /><br />
+                </p>
+                <p>
+                    <label htmlFor="dueDate">Due Date:</label>
+                    <input type="date" onChange={dueDateInput} /><br />
+                </p>
+                <p>
+                    <label htmlFor="notes">Notes:</label>
+                    <input type="text" onChange={notesInput} /><br />
+                </p>
+                <p>
+                    <label htmlFor="customer">Customer:</label>
+                    <select id='customer' name='customer' onChange={customerInput} >
+                        <option value="">Select Client</option>
+                            {clients.map(client => {
+                                return <option value={client._id} key={client._id}>{client.company}</option>
+                            })}
+                    </select>
+                </p>
                 <input type="submit" />
             </form >
         </div>

@@ -13,7 +13,9 @@ const linkStyle = {
 const navbarStyle = {
 	position: 'absolute',
 	width: '15%',
-	height: '100vh'
+	height: '100vh',
+	textAlign: 'center',
+	backgroundColor: 'grey'
 }
 
 const authenticatedOptions = (
@@ -68,7 +70,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md' className="flex-column" style={navbarStyle}>
+	<Navbar   expand='md' className="flex-column" style={navbarStyle}>
 		<Navbar.Brand>
 			<Link to='/' style={linkStyle}>
 				Print Shop

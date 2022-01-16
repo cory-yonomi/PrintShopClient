@@ -76,7 +76,7 @@ const App = () => {
     }
     `
     
-    const { loading, data } = useQuery(GET_DASHBOARD_DATA)
+    const { data } = useQuery(GET_DASHBOARD_DATA)
     
     const [deleteJob] = useMutation(DELETE_JOB, {
         variables: {
@@ -104,7 +104,6 @@ const App = () => {
 	return (
 		<Fragment>
 			<Header user={user} />
-			<p>Test</p>
 			<Routes>
 				<Route path="/" element={<Home msgAlert={msgAlert} user={user} />} />
 				<Route

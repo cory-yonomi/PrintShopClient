@@ -13,15 +13,38 @@ code {
 }
 
 .main {
+  height: 100vh;
   margin-left: 15%;
 }
 
 .lists {
   display: flex;
   justify-content: space-evenly;
+  padding-top: 40px;
 }
 
 .listItem, .formsList, .clientDisplay {
   display: flex;
   justify-content: space-around;
+}
+
+.formTable {
+  display: table;
+}
+
+.formTable p {
+  display: table-row;
+}
+
+.formTable input, .formTable select {
+  margin-left: 10px;
+  display: table-cell;
+}
+
+.formTable label {
+  display: table-cell;
+}
+
+.formsList {
+  margin-top: 15px;
 }

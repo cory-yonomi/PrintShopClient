@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { gql, useMutation } from '@apollo/client'
-import Jobs from './Jobs'
 
 export default function JobForm({ clients, jobs, setJobs }) {
     const [item, setItem] = useState('')
@@ -97,36 +96,45 @@ export default function JobForm({ clients, jobs, setJobs }) {
     return (
         <div>
             <h3>Add A Job</h3>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className='formTable'>
+                <p>
                 <label htmlFor="item">Item:</label>
                 <input type="text" onChange={itemInput} /><br />
-                
+                </p>
+                <p>
                 <label htmlFor="media">Media:</label>
                 <input type="text" onChange={mediaInput} /><br />
-                
+                </p>
+                <p>
                 <label htmlFor="height">Height:</label>
                 <input type="text" onChange={heightInput} /><br />
-                
+                </p>
+                <p>
                 <label htmlFor="width">Width:</label>
                 <input type="text" onChange={widthInput} /><br />
-                
+                </p>
+                <p>
                 <label htmlFor="quantity">Quantity:</label>
                 <input type="number" onChange={quantityInput} /><br />
-                
+                </p>
+                <p>
                 <label htmlFor="dueDate">Due Date:</label>
                 <input type="date" onChange={dueDateInput} /><br />
-                
+                </p>
+                <p>
                 <label htmlFor="notes">Notes:</label>
                 <input type="text" onChange={notesInput} /><br />
-                
+                </p>
+                <p>
                 <label htmlFor="customer">Customer:</label>
-                <select id='customer' name='customer' onChange={customerInput}>
-                    {clients.map(client => {
-                        return <option value={client._id} key={client._id}>{client.company}</option>
-                    })}
-                </select>
-                
-                <button >Submit</button>
+                <select id='customer' name='customer' onChange={customerInput} >
+                        <option value="">Select Client</option>
+                            {clients.map(client => {
+                                return <option value={client._id} key={client._id}>{client.company}</option>
+                            })}
+                    </select>
+                </p>
+                <input type="submit" />
             </form >
         </div>
     )

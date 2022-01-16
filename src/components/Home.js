@@ -1,6 +1,6 @@
-import { useEffect, useState, Fragment } from "react"
+import { Fragment } from "react"
 import { Link } from "react-router-dom"
-import axios from "axios"
+
 import { Container, Row } from "react-bootstrap"
 
 const homeStyle = {
@@ -9,27 +9,6 @@ const homeStyle = {
 }
 
 const Home = (props) => {
-	const [customers, setCustomers] = useState([])
-
-	useEffect(() => {
-		axios.post('http://localhost:8000/graphql', {
-			query: "{ customers { contactName } }"
-			// headers: {
-			// 	'Content-Type': 'application/json',
-			// 	'Authorization': 'Bearer Token'
-			// }
-		})
-		.then(resp => {
-			setCustomers(resp.data.data.customers)
-		})
-	}, [])
-
-	const allCustomers = customers.map(cust => {
-		return <p>{cust.contactName}</p>
-	})
-		
-	// const { msgAlert, user } = props
-	console.log('props in home', props)
 
 	return (
 		<Fragment >
