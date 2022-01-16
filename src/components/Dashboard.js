@@ -1,56 +1,36 @@
-import { useEffect, useState, Fragment } from "react"
-import { gql, useQuery } from '@apollo/client'
+import { useEffect, useState } from "react"
+import { gql, useQuery, useMutation } from '@apollo/client'
 import ListDisplay from './ui/ListDisplay'
 import './Dashboard.css'
 import ProjectForm from "./projects/ProjectForm"
+import JobForm from "./jobs/JobForm"
 
-const Dashboard = () => {
-    const [clients, setClients] = useState([])
-    const [projects, setProjects] = useState([])
-
-    const GET_DASHBOARD_DATA = gql`
-    query {
-        customers {
-            _id
-            company
-        }
-        projects {
-            name
-            customer {
-                company
-            }
-        }
-    }
-    `
-
-    const {loading, data} = useQuery(GET_DASHBOARD_DATA)
-    
-    useEffect(() => {
-        if (data) {
-            setClients(data.customers)
-            setProjects(data.projects)
-        }
-    }, [data])
+const Dashboard = ({ clients, jobs, projects, deleteJobHandler, setJobs }) => {
 
     return (
         <div className='main'>
             <div className='lists'>
                 <ListDisplay title='Current Projects'>
-                    {loading ? (<p>Loading</p>) : (
-                        data && projects.map(project => (
-                                <div className='listItem' key={project._id}>
-                                <div>{project.name}</div>
-                                <div>{project.customer.company}</div>
-                                </div>
-                            ))
-                )}
+                    {projects && projects.map(project => (
+                        <div className='listItem' key={project._id}>
+                            <div>{project.name}</div>
+                            <div>{project.customer.company}</div>
+                        </div>))}
                 </ListDisplay>
                 <ListDisplay title='Current Jobs'>
-    
+                
+                    {jobs && jobs.map(job => (
+                        <div className='listItem' key={job._id}>
+                            <div>{job.item}</div>
+                            <div>{job.customer.company}</div>
+                            <button onClick={deleteJobHandler} id={job._id}>Delete</button>
+                        </div>))}
+                            
                 </ListDisplay>
             </div>
-            <div className="forms">
-                <ProjectForm clients={clients}/>
+            <div className="formsList">
+                <JobForm clients={clients} jobs={jobs} setJobs={setJobs} />
+                <ProjectForm clients={clients} />
             </div>
         </div>
     )

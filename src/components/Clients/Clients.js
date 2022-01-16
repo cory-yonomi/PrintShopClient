@@ -36,6 +36,7 @@ const Clients = () => {
                         data && clients.map(customer => (
                                 <div className='listItem' key={customer._id} onClick={ () => setSelectedClient(customer)}>
                                 <div>{customer.company}</div>
+                                <div>{customer.contactName}</div>
                                 </div>
                             ))
                 )}

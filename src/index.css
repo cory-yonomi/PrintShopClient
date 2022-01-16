@@ -21,12 +21,7 @@ code {
   justify-content: space-evenly;
 }
 
-.listItem {
-  display: flex;
-  justify-content: center;
-}
-
-.clientDisplay {
+.listItem, .formsList, .clientDisplay {
   display: flex;
   justify-content: space-around;
 }

@@ -40,7 +40,7 @@ const Home = (props) => {
 				</Row>
 				
 					<button><Link to='/sign-in'>Log In</Link></button><button><Link to='/sign-up'>Create Account</Link></button>
-				{allCustomers}
+				
 			</Container>
 		</Fragment>
 	)
