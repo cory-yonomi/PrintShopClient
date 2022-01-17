@@ -56,16 +56,26 @@ const ClientForm = () => {
     return (
         <div>
             <h3>Add A Client</h3>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className='formTable'>
+                <p>
                 <label htmlFor="company">Company:</label>
-                <input type="text" onChange={companyInput} value={company}/><br />
+                <input type="text" onChange={companyInput} value={company} /><br />
+                </p>
+                <p>
                 <label htmlFor="contactName">Contact:</label>
-                <input type="text" onChange={contactNameInput} value={contactName}/><br />
+                    <input type="text" onChange={contactNameInput} value={contactName} /><br />
+                    </p>
+                <p>
                 <label htmlFor="email">Email:</label>
-                <input type="text" onChange={emailInput} value={email}/><br />
+                    <input type="text" onChange={emailInput} value={email} /><br />
+                    </p>
+                <p>
                 <label htmlFor="phone">Phone:</label>
-                <input type="text" onChange={phoneInput} value={phone}/><br />
-                <input type="submit" />
+                    <input type="text" onChange={phoneInput} value={phone} /><br />
+                    </p>
+                <p>
+                    <input type="submit" />
+                    </p>
             </form >
         </div>
     )

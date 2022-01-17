@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 const linkStyle = {
-    color: 'white',
+    color: 'black',
 	textDecoration: 'none',
 	marginLeft: '-10px'
 }
@@ -15,7 +15,9 @@ const navbarStyle = {
 	width: '15%',
 	height: '100vh',
 	textAlign: 'center',
-	backgroundColor: 'grey'
+	borderRight: '1px solid grey',
+	background: 'rgb(220,220,220)',
+	color: 'grey'
 }
 
 const authenticatedOptions = (

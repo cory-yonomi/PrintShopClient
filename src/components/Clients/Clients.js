@@ -7,6 +7,7 @@ import ClientDisplay from "./ClientDisplay"
 const Clients = () => {
     const [clients, setClients] = useState([])
     const [selectedClient, setSelectedClient] = useState({})
+    const [displayClient, setDisplayClient] = useState(false)
 
     const GET_ALL_CLIENTS = gql`
     query {
@@ -27,6 +28,8 @@ const Clients = () => {
         }
     }, [data])
     
+    
+
     return (
         
         <div className='main'>
@@ -34,7 +37,10 @@ const Clients = () => {
                 <ListDisplay title="All Clients">
                 {loading ? (<p>Loading</p>) : (
                         data && clients.map(customer => (
-                                <div className='listItem' key={customer._id} onClick={ () => setSelectedClient(customer)}>
+                            <div className='listItem' key={customer._id} onClick={() => {
+                                setSelectedClient(customer)
+                                setDisplayClient(true)
+                            }}>
                                 <div>{customer.company}</div>
                                 <div>{customer.contactName}</div>
                                 </div>
@@ -43,7 +49,7 @@ const Clients = () => {
             </ListDisplay>
                 <ClientForm />
             </div>
-            {selectedClient && <ClientDisplay clients={clients} client={selectedClient} setClient={setSelectedClient} setClients={setClients} />}
+            {displayClient && <ClientDisplay clients={clients} client={selectedClient} setClient={setSelectedClient} setClients={setClients} setDisplayClient={setDisplayClient}/>}
         </div>
     )
 }

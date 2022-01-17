@@ -2,5 +2,10 @@
     width: 45%;
     height: 300px;
     border: 1px solid grey;
+    border-radius: 8px;
     text-align: center;
+}
+
+.h3 {
+    padding: 15px 0;
 }

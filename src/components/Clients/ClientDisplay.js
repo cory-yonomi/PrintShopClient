@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { gql, useMutation } from '@apollo/client'
 
-export default function ClientDisplay({ client, clients, setClient, setClients }) {
+export default function ClientDisplay({ client, clients, setClient, setClients, setDisplayClient }) {
     const [editing, setEditing] = useState(false)
     const [ company, setCompany ] = useState('')
     const [ contactName, setContactName ] = useState('')
@@ -62,6 +62,7 @@ export default function ClientDisplay({ client, clients, setClient, setClients }
         setContactName(contactName)
         setEmail(email)
         setPhone(phone)
+        setDisplayClient(false)
     }
 
     useEffect(() => {
@@ -79,7 +80,11 @@ export default function ClientDisplay({ client, clients, setClient, setClients }
                     <div>{client.contactName}</div>
                     <div>{client.email}</div>
                     <div>{client.phone}</div>
-                    <div><button onClick={() => setEditing(true)}>Edit</button></div>
+                    <div>
+                        <button onClick={() => setEditing(true)}>Edit</button>
+                        <button onClick={() => setDisplayClient(false)}>X</button>
+                    </div>
+                    
                 </div>
             ) : (
                     <div className='clientDisplay'>
