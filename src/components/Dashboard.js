@@ -6,15 +6,24 @@ import JobForm from "./jobs/JobForm"
 
 const Dashboard = ({ clients, jobs, projects, deleteJobHandler, setJobs }) => {
 
+    const allProjects = projects.map(project => {
+        // break out the date so it can have toLocaleDateString used because it doesn't
+        // work otherwise for some dumb reason
+        let date = new Date(project.dueDate)
+        return (
+        <div className='listItem' key={project._id}>
+            <div>{project.name}</div>
+            <div>{project.customer.company}</div>
+            <div>{date.toLocaleDateString()}</div>
+            </div>)
+        }
+    )
+
     return (
         <div className='main'>
             <div className='lists'>
                 <ListDisplay title='Current Projects'>
-                    {projects && projects.map(project => (
-                        <div className='listItem' key={project._id}>
-                            <div>{project.name}</div>
-                            <div>{project.customer.company}</div>
-                        </div>))}
+                    {allProjects}
                 </ListDisplay>
                 <ListDisplay title='Current Jobs'>
                 

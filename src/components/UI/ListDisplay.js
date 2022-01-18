@@ -5,7 +5,7 @@ const ListDisplay = ({ title, children }) => {
 
     return (
         <div className="listDisplay">
-            <h3 className="h3">{title}</h3>
+            <tr className="h3"><h3 >{title}</h3></tr>
             {children}
         </div>
     )

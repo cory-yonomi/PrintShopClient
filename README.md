@@ -1,38 +1,59 @@
-# Getting Started with Create React App
+# Print Shop Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Customer and Project Management for Large Format Print Shops
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- API: Node, Express, GraphQL
+- Front-end: React, GraphQL, Apollo Client
 
-### `npm start`
+## User Stories
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- I need to create, edit, delete and track customer orders
+- I need jobs to move between different workflow locations
+- I need to collect large orders in Projects
+- I want to see my workflow and order locations visualized
+- I want to assign individual orders to other users
+- I want to create my own workflow locations
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## MVP
 
+- User can CRUD customers
+- User can CRUD jobs (individual items)
+- User can CRUD projects (collections and jobs)
+- Jobs and projects show in a workflow
+- Jobs and projects can be moved freely between locations
+- Completed jobs can be archived 
 
-## Learn More
+## Project Stretch Goals
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- User access levels
+- User can CRUD medias and machines
+- User can CRUD locations
+- Job math
+- Data tracking
+- Deeper job details
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### After Graduation Stretch
 
-### Code Splitting
+- Invoice tracking
+- Cost Analysis
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## ERD
 
-### Analyzing the Bundle Size
+Models: User, Customer, Project, Job
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Users have many projects and jobs
+Customers have many projects and jobs
+Projects have one user, one customer, and many jobs
+Jobs have one user, one customer, one project 
 
-### Making a Progressive Web App
+![ERD](https://i.imgur.com/QmOWU6E.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Wireframes and Sitemap
 
-### Advanced Configuration
+![Site Map](https://i.imgur.com/0ciA7fY.png?1)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![Landing](https://i.imgur.com/9jQZ5dV.png)
+![Dashboard](https://i.imgur.com/Nj6AjgS.png)
+![Workflow](https://i.imgur.com/s8kQduy.png)

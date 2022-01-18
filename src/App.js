@@ -54,6 +54,7 @@ const App = () => {
         projects {
             _id
             name
+			dueDate
             customer {
                 company
             }

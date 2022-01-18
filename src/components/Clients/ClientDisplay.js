@@ -58,10 +58,6 @@ export default function ClientDisplay({ client, clients, setClient, setClients, 
         e.preventDefault()
         editCustomer()
         refreshClients()
-        setCompany(company)
-        setContactName(contactName)
-        setEmail(email)
-        setPhone(phone)
         setDisplayClient(false)
     }
 

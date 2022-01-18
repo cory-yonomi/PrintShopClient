@@ -4,7 +4,7 @@ import { gql, useMutation } from '@apollo/client'
 export default function ProjectForm({ clients }) {
     
     const [name, setName] = useState('')
-    const [dueDate, setDueDate] = useState(new Date())
+    const [dueDate, setDueDate] = useState(null)
     const [customer, setCustomer] = useState('')
     const [notes, setNotes] = useState('')
 
@@ -25,7 +25,7 @@ export default function ProjectForm({ clients }) {
     }
 
     const CREATE_PROJECT = gql`
-    mutation createProject($name: String!, $customer: ID!, $notes: String!, $dueDate: String!){
+    mutation createProject($name: String!, $customer: ID!, $notes: String!, $dueDate: Date!){
         createProject(name: $name, customer: $customer, notes: $notes, dueDate: $dueDate){
             name
             dueDate
@@ -41,7 +41,7 @@ export default function ProjectForm({ clients }) {
         name: name,
         customer: customer,
         notes: notes,
-        dueDate: new Date(dueDate)
+        dueDate: dueDate
         }
     })
 

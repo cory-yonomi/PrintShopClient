@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Open Sans',
     sans-serif;
   
   -webkit-font-smoothing: antialiased;
@@ -27,6 +28,18 @@ code {
 .listItem, .formsList, .clientDisplay {
   display: flex;
   justify-content: space-around;
+}
+
+.listItem {
+  display: table-row;
+}
+
+.listItem div {
+  display: table-cell;
+  margin-left: 5%;
+  padding-left: 5%;
+  width: 40%;
+  text-align: left;
 }
 
 .formTable {

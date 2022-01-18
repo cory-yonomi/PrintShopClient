@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 
 
 const linkStyle = {
-    color: 'black',
+    color: 'rgb(75, 75, 75)',
 	textDecoration: 'none',
-	marginLeft: '-10px'
+	marginLeft: '-10px',
+	fontFamily: 'Roboto Condensed'
 }
 
 const navbarStyle = {
@@ -15,8 +16,8 @@ const navbarStyle = {
 	width: '15%',
 	height: '100vh',
 	textAlign: 'center',
-	borderRight: '1px solid grey',
-	background: 'rgb(220,220,220)',
+	borderRight: '1px solid rgb(200, 200, 200)',
+	background: 'rgb(240,240,240)',
 	color: 'grey'
 }
 
