@@ -30,12 +30,12 @@ Customer and Project Management for Large Format Print Shops
 - User access levels
 - User can CRUD medias and machines
 - User can CRUD locations
-- Job math
-- Data tracking
 - Deeper job details
 
 ### After Graduation Stretch
 
+- Job math
+- Data tracking
 - Invoice tracking
 - Cost Analysis
 

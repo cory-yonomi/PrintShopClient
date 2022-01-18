@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Location() {
+export default function Location({location, jobs, projectJobs}) {
     return (
-        <div>
+        <div className="location">
             
         </div>
     )
