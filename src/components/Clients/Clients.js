@@ -4,7 +4,7 @@ import ClientForm from "./ClientForm"
 import { gql, useQuery } from '@apollo/client'
 import ClientDisplay from "./ClientDisplay"
 
-const Clients = () => {
+export default function Clients() {
     const [clients, setClients] = useState([])
     const [selectedClient, setSelectedClient] = useState({})
     const [displayClient, setDisplayClient] = useState(false)
@@ -53,5 +53,3 @@ const Clients = () => {
         </div>
     )
 }
-
-export default Clients
