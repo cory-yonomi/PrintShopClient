@@ -1,5 +1,5 @@
 import React from 'react'
-import ListDisplay from '../ui/ListDisplay'
+import ListDisplay from '../UI/ListDisplay'
 import ProjectForm from './ProjectForm'
 
 export default function Projects({projects, clients}) {

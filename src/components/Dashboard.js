@@ -1,5 +1,5 @@
 
-import ListDisplay from './ui/ListDisplay'
+import ListDisplay from './UI/ListDisplay'
 import './Dashboard.css'
 import ProjectForm from "./projects/ProjectForm"
 import JobForm from "./jobs/JobForm"

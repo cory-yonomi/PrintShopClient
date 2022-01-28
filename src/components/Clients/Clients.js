@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import ListDisplay from "../ui/ListDisplay"
+import ListDisplay from "../UI/ListDisplay"
 import ClientForm from "./ClientForm"
 import { gql, useQuery } from '@apollo/client'
 import ClientDisplay from "./ClientDisplay"
